@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EBTCO.FE.Widgets.Employee.EmployeesIndex"
+             Title="Employees">
+    <VerticalStackLayout>
+        <CollectionView ItemsLayout="VerticalList" x:Name="EmployeesList" Margin="20">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid BackgroundColor="#FFF" Padding="15" Margin="0 ,10">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="PointerOver">
+                                    <VisualState.Setters>
+                                        <Setter Property="BackgroundColor" Value="LightGray"/>
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="3.5*"/>
+                            <ColumnDefinition Width="3.5*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <VerticalStackLayout Grid.Column="0" Style="{StaticResource GridItem}">
+                            <Label Text="{Binding FullName}" Style="{StaticResource NormalText}"/>
+                            <Label Text="{Binding BirthDate}" Style="{StaticResource MuteText}"/>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Column="1" Style="{StaticResource GridItem}">
+                            <Label Text="{Binding OfficeName}" Style="{StaticResource NormalText}"/>
+                        </VerticalStackLayout>
+
+                        <HorizontalStackLayout Grid.Column="2" Style="{StaticResource GridItemEnd}">
+                            <Button FontFamily="FFR" 
+                                    Text="&#xf044;" 
+                                    BackgroundColor="{StaticResource success}"
+                                    TextColor="White"
+                                    x:Name="EditBtn" 
+                                    Clicked="EditBtn_Clicked" 
+                                    ClassId="{Binding Id}" />
+                            
+                            <Button 
+                                FontFamily="FFR" 
+                                Text="&#x58;" 
+                                BackgroundColor="{StaticResource danger}"
+                                TextColor="White"
+                                x:Name="DeleteBtn" 
+                                Clicked="DeleteBtn_Clicked" 
+                                Margin="10, 0, 0, 0" 
+                                ClassId="{Binding Id}"/>
+                        </HorizontalStackLayout>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

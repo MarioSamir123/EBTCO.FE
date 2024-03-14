@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="EBTCO.FE.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:EBTCO.FE"
+    xmlns:own="clr-namespace:EBTCO.FE.Widgets.Owner"
+    xmlns:sales="clr-namespace:EBTCO.FE.Widgets.SalesOffice"
+    xmlns:prop="clr-namespace:EBTCO.FE.Widgets.Properties"
+    xmlns:emp="clr-namespace:EBTCO.FE.Widgets.Employee" 
+    Shell.FlyoutBehavior="Flyout"
+    Title="EBTCO.FE">
+
+    <ShellContent
+    Title="Home"
+    ContentTemplate="{DataTemplate local:MainPage}"
+    Route="MainPage" />
+
+    <ShellContent
+    Title="Owners"
+    ContentTemplate="{DataTemplate own:OwnersIndex}"
+    Route="OwnersIndex" />
+
+    <ShellContent
+    Title="Employees"
+    ContentTemplate="{DataTemplate emp:EmployeesIndex}"
+    Route="EmployeesIndex" />
+
+    <ShellContent
+    Title="Sales Offices"
+    ContentTemplate="{DataTemplate sales:SalesOfficesIndex}"
+    Route="SalesOfficesIndex" />
+
+    <ShellContent
+    Title="Properties"
+    ContentTemplate="{DataTemplate prop:PropertiesIndex}"
+    Route="PropertiesIndex" />
+</Shell>

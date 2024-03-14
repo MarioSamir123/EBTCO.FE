@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EBTCO.FE.Widgets.SalesOffice.EditSalesOffice"
+             Title="EditSalesOffice">
+    <VerticalStackLayout HorizontalOptions="Center">
+        <HorizontalStackLayout Style="{StaticResource FormGroupStyle}">
+            <Label Text="Sales Office Name" VerticalOptions="Center" Style="{StaticResource FormLabelStyle}"/>
+            <Entry x:Name="SalesOfficeName" Placeholder="Sales Office Name" Style="{StaticResource FormEntryStyle}"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Style="{StaticResource FormGroupStyle}">
+            <Label Text="Building No" VerticalOptions="Center" Style="{StaticResource FormLabelStyle}"/>
+            <Entry x:Name="BuildingNo" Placeholder="ex. 145" Style="{StaticResource FormEntryStyle}"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Style="{StaticResource FormGroupStyle}">
+            <Label Text="Street" VerticalOptions="Center" Style="{StaticResource FormLabelStyle}"/>
+            <Entry x:Name="Street" Placeholder="ex. Mohandseen" Style="{StaticResource FormEntryStyle}"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Style="{StaticResource FormGroupStyle}">
+            <Label Text="City" VerticalOptions="Center" Style="{StaticResource FormLabelStyle}"/>
+            <Entry x:Name="City" Placeholder="ex. Nasr City" Style="{StaticResource FormEntryStyle}"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Style="{StaticResource FormGroupStyle}">
+            <Label Text="State" VerticalOptions="Center" Style="{StaticResource FormLabelStyle}"/>
+            <Entry x:Name="State" Placeholder="ex. Cairo" Style="{StaticResource FormEntryStyle}"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Style="{StaticResource FormGroupStyle}">
+            <Label Text="Zip Code" VerticalOptions="Center" Style="{StaticResource FormLabelStyle}"/>
+            <Entry x:Name="ZipCode" Placeholder="ex. 11511" Style="{StaticResource FormEntryStyle}"/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Style="{StaticResource FormGroupStyle}">
+            <Button Text="Submit" x:Name="Submit" Clicked="Submit_Clicked" Style="{StaticResource FormButtonStyle}"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>
