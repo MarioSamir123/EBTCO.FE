@@ -27,8 +27,8 @@ namespace EBTCO.FE.Contract
 
             if (response.IsSuccessStatusCode)
             {
-                return new ApiResponse<T> 
-                { 
+                return new ApiResponse<T>
+                {
                     Data = JsonConvert.DeserializeObject<T>(value)
                 };
             }

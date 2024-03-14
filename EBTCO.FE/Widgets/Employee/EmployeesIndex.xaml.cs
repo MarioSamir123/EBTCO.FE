@@ -23,9 +23,10 @@ public partial class EmployeesIndex : ContentPage
         }
     }
 
-    private void EditBtn_Clicked(object sender, EventArgs e)
+    private async void EditBtn_Clicked(object sender, EventArgs e)
     {
-
+        var btn = (Button)sender;
+        await Navigation.PushAsync(new EditEmployee(_apiService, btn.ClassId));
     }
 
     private async void DeleteBtn_Clicked(object sender, EventArgs e)

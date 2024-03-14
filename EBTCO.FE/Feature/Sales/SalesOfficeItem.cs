@@ -4,7 +4,7 @@
     {
         public String GetAddress => $"{BuildingNo}, {Street}, {City}, {State}";
     }
-    public record SalesOfficeDto(Guid ID, String OfficeName, AddressDto Address,int NoOfProperties, String ManagerName);
+    public record SalesOfficeDto(Guid ID, String OfficeName, AddressDto Address, int NoOfProperties, String ManagerName);
     public record GetAllSalesOfficeQueryResponse(List<SalesOfficeDto> SalesOffices);
     public record GetSalseOfficeByIdQueryResponse(SalesOfficeDto SalesOffice);
 }
