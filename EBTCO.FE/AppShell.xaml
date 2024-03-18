@@ -10,29 +10,20 @@
     xmlns:emp="clr-namespace:EBTCO.FE.Widgets.Employee" 
     Shell.FlyoutBehavior="Flyout"
     Title="EBTCO.FE">
+    
+    <ShellContent
+        Title="Sales Offices"
+        ContentTemplate="{DataTemplate sales:SalesOfficesIndex}"
+        Route="SalesOfficesIndex" />
 
     <ShellContent
-    Title="Home"
-    ContentTemplate="{DataTemplate local:MainPage}"
-    Route="MainPage" />
+        Title="Owners"
+        ContentTemplate="{DataTemplate own:OwnersIndex}"
+        Route="OwnersIndex" />
 
     <ShellContent
-    Title="Owners"
-    ContentTemplate="{DataTemplate own:OwnersIndex}"
-    Route="OwnersIndex" />
+        Title="Employees"
+        ContentTemplate="{DataTemplate emp:EmployeesIndex}"
+        Route="EmployeesIndex" />
 
-    <ShellContent
-    Title="Employees"
-    ContentTemplate="{DataTemplate emp:EmployeesIndex}"
-    Route="EmployeesIndex" />
-
-    <ShellContent
-    Title="Sales Offices"
-    ContentTemplate="{DataTemplate sales:SalesOfficesIndex}"
-    Route="SalesOfficesIndex" />
-
-    <ShellContent
-    Title="Properties"
-    ContentTemplate="{DataTemplate prop:PropertiesIndex}"
-    Route="PropertiesIndex" />
 </Shell>

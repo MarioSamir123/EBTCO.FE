@@ -1,6 +1,8 @@
-﻿using EBTCO.FE.Contract;
+﻿using CommunityToolkit.Maui;
+using EBTCO.FE.Contract;
 using EBTCO.FE.Widgets.Employee;
 using EBTCO.FE.Widgets.Owner;
+using EBTCO.FE.Widgets.Properties;
 using EBTCO.FE.Widgets.SalesOffice;
 using Microsoft.Extensions.Logging;
 using System.Reflection;
@@ -14,6 +16,7 @@ namespace EBTCO.FE
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -33,6 +36,7 @@ namespace EBTCO.FE
             builder.Services.AddSingleton<EmployeesIndex>();
             builder.Services.AddSingleton<OwnersIndex>();
             builder.Services.AddSingleton<SalesOfficesIndex>();
+            builder.Services.AddSingleton<PropertiesIndex>();
             var app = builder.Build(); 
             return app;
         }

@@ -3,71 +3,73 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EBTCO.FE.Widgets.Owner.OwnersIndex"
              Title="Owners">
-    <VerticalStackLayout>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2.5*"/>
-                <ColumnDefinition Width="5*"/>
-                <ColumnDefinition Width="2.5*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
+    <ScrollView>
+        <VerticalStackLayout>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2.5*"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="2.5*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
                 <Button Text="Add Owner"
-                    Grid.Column="1"  
-                    Grid.Row="0" 
-                    x:Name="AddOwner" 
-                    Clicked="AddOwner_Clicked" 
-                    WidthRequest="120" 
-                    HorizontalOptions="End" 
-                    Margin="20,20,0,20"/>
-            <CollectionView x:Name="OwnersList" Grid.Column="1"  Grid.Row="1">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Grid BackgroundColor="#FFF" Padding="0,15,0,15">
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup x:Name="CommonStates">
-                                <VisualState x:Name="Normal" />
-                                <VisualState x:Name="PointerOver">
-                                    <VisualState.Setters>
-                                        <Setter Property="BackgroundColor" Value="LightGray"/>
-                                    </VisualState.Setters>
-                                </VisualState>
-                            </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="5*"/>
-                                <ColumnDefinition Width="5*"/>
-                        </Grid.ColumnDefinitions>
+                Grid.Column="1"  
+                Grid.Row="0" 
+                x:Name="AddOwner" 
+                Clicked="AddOwner_Clicked" 
+                WidthRequest="120" 
+                HorizontalOptions="End" 
+                Margin="20,20,0,20"/>
+                <CollectionView x:Name="OwnersList" Grid.Column="1"  Grid.Row="1">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid BackgroundColor="#FFF" Padding="0,15,0,15">
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup x:Name="CommonStates">
+                                        <VisualState x:Name="Normal" />
+                                        <VisualState x:Name="PointerOver">
+                                            <VisualState.Setters>
+                                                <Setter Property="BackgroundColor" Value="LightGray"/>
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="5*"/>
+                                </Grid.ColumnDefinitions>
 
-                            <VerticalStackLayout Grid.Column="0" Style="{StaticResource GridItem}">
-                                <Label Text="{Binding FullName}" Style="{StaticResource NormalText}"/>
-                        </VerticalStackLayout>
+                                <VerticalStackLayout Grid.Column="0" Style="{StaticResource GridItem}">
+                                    <Label Text="{Binding FullName}" Style="{StaticResource NormalText}"/>
+                                </VerticalStackLayout>
 
-                            <HorizontalStackLayout Grid.Column="1" Style="{StaticResource GridItemEnd}">
-                            <Button FontFamily="FFR" 
-                                Text="&#xf044;" 
-                                BackgroundColor="{StaticResource success}"
-                                TextColor="White"
-                                x:Name="EditBtn" 
-                                Clicked="EditBtn_Clicked" 
-                                ClassId="{Binding Id}" />
+                                <HorizontalStackLayout Grid.Column="1" Style="{StaticResource GridItemEnd}">
+                                    <Button FontFamily="FFR" 
+                            Text="&#xf044;" 
+                            BackgroundColor="{StaticResource success}"
+                            TextColor="White"
+                            x:Name="EditBtn" 
+                            Clicked="EditBtn_Clicked" 
+                            ClassId="{Binding Id}" />
 
-                            <Button 
-                                FontFamily="FFR" 
-                                Text="&#x58;" 
-                                BackgroundColor="{StaticResource danger}"
-                                TextColor="White"
-                                x:Name="DeleteBtn" 
-                                Clicked="DeleteBtn_Clicked" 
-                                Margin="10, 0, 0, 0" 
-                                ClassId="{Binding Id}"/>
-                        </HorizontalStackLayout>
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-        </Grid>
-    </VerticalStackLayout>
+                                    <Button 
+                            FontFamily="FFR" 
+                            Text="&#x58;" 
+                            BackgroundColor="{StaticResource danger}"
+                            TextColor="White"
+                            x:Name="DeleteBtn" 
+                            Clicked="DeleteBtn_Clicked" 
+                            Margin="10, 0, 0, 0" 
+                            ClassId="{Binding Id}"/>
+                                </HorizontalStackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

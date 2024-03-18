@@ -3,10 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EBTCO.FE.Widgets.Properties.AddProperty"
              Title="AddProperty">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+    <VerticalStackLayout HorizontalOptions="Center">
+        <HorizontalStackLayout Style="{StaticResource FormGroupStyle}">
+            <Label Text="City" VerticalOptions="Center" Style="{StaticResource FormLabelStyle}"/>
+            <Entry x:Name="City" Placeholder="ex. Cairo" Style="{StaticResource FormEntryStyle}" Keyboard="Text"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Style="{StaticResource FormGroupStyle}">
+            <Label Text="Price From" VerticalOptions="Center" Style="{StaticResource FormLabelStyle}"/>
+            <Entry x:Name="PriceFrom" Keyboard="Numeric" Placeholder="ex. 15000$" Style="{StaticResource FormEntryStyle}" />
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Style="{StaticResource FormGroupStyle}">
+            <Label Text="Price To" VerticalOptions="Center" Style="{StaticResource FormLabelStyle}" />
+            <Entry x:Name="PriceTo" Placeholder="ex. 15000$" Style="{StaticResource FormEntryStyle}" Keyboard="Numeric"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Style="{StaticResource FormGroupStyle}">
+            <Label Text="No Of Bedrooms" VerticalOptions="Center" Style="{StaticResource FormLabelStyle}" />
+            <Entry x:Name="NoOfBedrooms" Placeholder="ex. 3" Style="{StaticResource FormEntryStyle}" Keyboard="Numeric"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Style="{StaticResource FormGroupStyle}">
+            <Label Text="NoOfBathrooms" VerticalOptions="Center" Style="{StaticResource FormLabelStyle}"/>
+            <Entry x:Name="NoOfBathrooms" Placeholder="ex. 2" Style="{StaticResource FormEntryStyle}" Keyboard="Numeric"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Style="{StaticResource FormGroupStyle}">
+            <Button Text="Submit" x:Name="Submit" Clicked="Submit_Clicked" Style="{StaticResource FormButtonStyle}"/>
+        </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

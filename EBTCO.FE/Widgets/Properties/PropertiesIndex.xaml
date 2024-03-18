@@ -3,10 +3,114 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EBTCO.FE.Widgets.Properties.PropertiesIndex"
              Title="PropertiesIndex">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="9*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                    
+                <Button Text="Add New Property"
+                    Grid.Column="1"  
+                    Grid.Row="0" 
+                    x:Name="AddNewProperty" 
+                    Clicked="AddNewProperty_Clicked" 
+                    HorizontalOptions="End" 
+                    Margin="20,20,0,20"/>
+
+            <Grid Grid.Column="1" Grid.Row="1" BackgroundColor="CadetBlue" Padding="15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition Width="0.5*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Prices" Grid.Column="0" Margin="20, 0, 0, 0" HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Label Text="Status" Grid.Column="1" Margin="20, 0, 0, 0" HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Label Text="NoOfBedrooms" Grid.Column="2" Margin="20, 0, 0, 0"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Label Text="NoOfBathrooms" Grid.Column="3" Margin="20, 0, 0, 0"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Label Text="City" Grid.Column="4" Margin="20, 0, 0, 0"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Label Text="Owning Percentage" Grid.Column="5" Margin="20, 0, 0, 0"  HorizontalOptions="Start" VerticalOptions="Center"/>
+            </Grid>
+            <CollectionView ItemsLayout="VerticalList" x:Name="PropertiesList" Grid.Column="1" Grid.Row="2">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid BackgroundColor="#FFF" Padding="15" Margin="0 ,10">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal" />
+                                    <VisualState x:Name="PointerOver">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="LightGray"/>
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                                <ColumnDefinition Width="0.5*"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <VerticalStackLayout Grid.Column="0" Style="{StaticResource GridItem}">
+                                <Label Text="{Binding Prices}" Style="{StaticResource NormalText}"/>
+                            </VerticalStackLayout>
+                            
+                            <VerticalStackLayout Grid.Column="1" Style="{StaticResource GridItem}">
+                                <Frame CornerRadius="5"
+                                       BorderColor="Transparent"
+                                       Padding="5"
+                                       Margin="5"
+                                       WidthRequest="70"
+                                       BackgroundColor="{Binding Color}">
+                                    <Label Text="{Binding Status}" FontSize="16"/>
+                                </Frame>
+                            </VerticalStackLayout>
+                            
+                            <VerticalStackLayout Grid.Column="2" Style="{StaticResource GridItem}">
+                                
+                                <Label Text="{Binding NoOfBedroom}" Style="{StaticResource NormalText}"/>
+                            </VerticalStackLayout>
+                            
+                            <VerticalStackLayout Grid.Column="3" Style="{StaticResource GridItem}">
+                                <Label Text="{Binding NoOfBathroom}" Style="{StaticResource NormalText}"/>
+                            </VerticalStackLayout>
+                            
+                            <VerticalStackLayout Grid.Column="4" Style="{StaticResource GridItem}">
+                                <Label Text="{Binding City}" Style="{StaticResource NormalText}"/>
+                            </VerticalStackLayout>
+                            
+                            <VerticalStackLayout Grid.Column="5" Style="{StaticResource GridItem}">
+                                <Label Text="{Binding OwningPer}" Style="{StaticResource NormalText}"/>
+                            </VerticalStackLayout>
+                            <HorizontalStackLayout Grid.Column="6" Style="{StaticResource GridItemEnd}">
+                                <Button
+                                    Text="Sale" 
+                                    BackgroundColor="{StaticResource primary}"
+                                    TextColor="White"
+                                    x:Name="SaleProp" 
+                                    Clicked="SaleProp_Clicked" 
+                                    ClassId="{Binding Id}" 
+                                    Margin="0, 0, 10, 0"/>
+                            </HorizontalStackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ScrollView>
 </ContentPage>

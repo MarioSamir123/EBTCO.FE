@@ -1,15 +1,18 @@
-﻿namespace EBTCO.FE
+﻿using CommunityToolkit.Maui.Views;
+using EBTCO.FE.Popups;
+
+namespace EBTCO.FE
 {
     public partial class MainPage : ContentPage
     {
         public MainPage()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private async void openAlret_Clicked(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

@@ -6,4 +6,5 @@
         public string BirthDate => Birthday.ToString("dd MMM yyyy");
     }
     public record GetAllEmployeesQueryResponse(List<EmployeesDto> Employees);
+    public record GetEmployeesNamesQueryResponse(Dictionary<String, String> Employees);
 }

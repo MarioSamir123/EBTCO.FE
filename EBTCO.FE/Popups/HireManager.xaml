@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mct:Popup  xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:mct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
+            x:Class="EBTCO.FE.Popups.HireManager"
+            Color="White"
+            CanBeDismissedByTappingOutsideOfPopup="False">
+    <VerticalStackLayout Padding="20" WidthRequest="500" BackgroundColor="White" HorizontalOptions="Center">
+        <Label Text="Select an Employee" FontSize="18" TextColor="Gray"/>
+        <Picker x:Name="employeesPicker" 
+            HorizontalOptions="Start"
+            WidthRequest="300"
+            TextColor="White"
+            BackgroundColor="Grey"
+            FontAttributes="Bold"
+            FontSize="18"
+            Margin="0,20">
+            <Picker.ItemDisplayBinding>
+                <Binding Path="Value" />
+            </Picker.ItemDisplayBinding>
+
+            <!--<VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="PointerOver">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="LightGray"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>-->
+        </Picker>
+        <HorizontalStackLayout>
+            <Button Text="Hire" x:Name="Hire" Clicked="Hire_Clicked" Margin="10,0"/>
+            <Button Text="Cancel" x:Name="Cancel" Clicked="Cancel_Clicked" Margin="10,0"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</mct:Popup>

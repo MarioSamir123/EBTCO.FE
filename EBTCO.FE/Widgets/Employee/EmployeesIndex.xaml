@@ -3,15 +3,42 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EBTCO.FE.Widgets.Employee.EmployeesIndex"
              Title="Employees">
+    <ScrollView>
+        
+    
     <VerticalStackLayout>
-        <Grid Grid.Column="1" Grid.Row="1" BackgroundColor="CadetBlue" Padding="0,15,0,15">
+        <Picker x:Name="salesOfficePicker" 
+                Title="Select a Sales Office"
+                SelectedIndexChanged="salesOfficePicker_SelectedIndexChanged" 
+                WidthRequest="300"
+                HorizontalOptions="Start"
+                Margin="20" BackgroundColor="White"
+                TextColor="Gray"
+                FontAttributes="Bold"
+                FontSize="18">
+            <Picker.ItemDisplayBinding>
+                <Binding Path="Value" />
+            </Picker.ItemDisplayBinding>
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="PointerOver">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="LightGray"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </Picker>
+        
+        <Grid Grid.Column="1" Grid.Row="1" BackgroundColor="CadetBlue" Padding="15">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3.5*"/>
                 <ColumnDefinition Width="3.5*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <Label Text="Full Name" Grid.Column="0" Margin="20, 0, 0, 0" HorizontalOptions="Start" VerticalOptions="Center"/>
-            <Label Text="Office" Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Center"/>
+            <Label Text="Office" Grid.Column="1" Margin="20, 0, 0, 0"  HorizontalOptions="Start" VerticalOptions="Center"/>
         </Grid>
         <CollectionView ItemsLayout="VerticalList" x:Name="EmployeesList">
             <CollectionView.ItemTemplate>
@@ -27,6 +54,7 @@
                                 </VisualState>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
+                        
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="3.5*"/>
                             <ColumnDefinition Width="3.5*"/>
@@ -63,5 +91,7 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+    
     </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

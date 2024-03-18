@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mct:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
+             x:Class="EBTCO.FE.Popups.SaleProperty"
+             CanBeDismissedByTappingOutsideOfPopup="False">
+
+    <VerticalStackLayout Padding="20" WidthRequest="500" BackgroundColor="White" HorizontalOptions="Center">
+        <Label Text="Select an Employee" FontSize="18" TextColor="Gray"/>
+        <Picker x:Name="ownersPicker" 
+            HorizontalOptions="Start"
+            WidthRequest="300"
+            TextColor="White"
+            BackgroundColor="Grey"
+            FontAttributes="Bold"
+            FontSize="18"
+            Margin="0,20">
+            <Picker.ItemDisplayBinding>
+                <Binding Path="Value" />
+            </Picker.ItemDisplayBinding>
+        </Picker>
+        <Label Text="Enter Ownership Percentage" FontSize="18" TextColor="Gray"/>
+        <Entry x:Name="OwnPer"  
+               WidthRequest="300" 
+               BackgroundColor="Grey"
+               FontAttributes="Bold"
+               FontSize="18"
+               TextColor="White" 
+               Keyboard="Numeric" 
+               Margin="0,20"
+               HorizontalOptions="Start"
+               VerticalOptions="Center"/>
+        <HorizontalStackLayout>
+            <Button Text="Sale" x:Name="Sale" Clicked="Sale_Clicked" Margin="10,0"/>
+            <Button Text="Cancel" x:Name="Cancel" Clicked="Cancel_Clicked" Margin="10,0"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</mct:Popup>

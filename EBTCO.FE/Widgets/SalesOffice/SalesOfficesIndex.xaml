@@ -2,7 +2,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EBTCO.FE.Widgets.SalesOffice.SalesOfficesIndex"
              Title="SalesOffices">
-    <VerticalStackLayout>
+    
+    <ScrollView>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.5*"/>
@@ -14,31 +15,53 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Button Text="Add New Sales Office" 
-                    x:Name="AddSalesOfficeBtn" 
+            
+            <Button Text="Add New Sales Office"
+                    x:Name="AddSalesOfficeBtn"
                     Clicked="AddSalesOfficeBtn_Clicked"
-                    Grid.Column="1"  
-                    Grid.Row="0" 
-                    WidthRequest="120" 
-                    HorizontalOptions="End" 
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    WidthRequest="120"
+                    HorizontalOptions="End"
                     Margin="20,20,0,20"/>
 
-            <Grid Grid.Column="1" Grid.Row="1" BackgroundColor="CadetBlue" Padding="0,15,0,15">
+            <Grid Grid.Column="1" Grid.Row="1" BackgroundColor="CadetBlue" Padding="0,4">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="3*"/>
                     <ColumnDefinition Width="2*"/>
                     <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="3*"/>
                 </Grid.ColumnDefinitions>
-                <Label Text="Sales Office" Grid.Column="0" Margin="20, 0, 0, 0" HorizontalOptions="Start" VerticalOptions="Center"/>
-                <Label Text="Manger In Charge" Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Center"/>
-                <Label Text="No. Of Properties" Grid.Column="2" HorizontalOptions="Start" VerticalOptions="Center"/>
+                <HorizontalStackLayout  Grid.Column="0" Style="{StaticResource TitleItem}">
+                    <Label Text="Sales Office" Style="{StaticResource TitleLabel}"/>
+                    <StackLayout Margin="10,0,0,0">
+                        <Button ImageSource="up.png" Style="{StaticResource SortBtn}" ClassId="0,0" Clicked="Sort_SalesOffices"/>
+                        <Button ImageSource="down.png" Style="{StaticResource SortBtn}" ClassId="0,1" Clicked="Sort_SalesOffices"/>
+                    </StackLayout>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout  Grid.Column="1" Style="{StaticResource TitleItem}">
+                    <Label Text="Manger In Charge" Style="{StaticResource TitleLabel}"/>
+                    <StackLayout Margin="10,0,0,0">
+                        <Button ImageSource="up.png" Style="{StaticResource SortBtn}" ClassId="3,0" Clicked="Sort_SalesOffices"/>
+                        <Button ImageSource="down.png" Style="{StaticResource SortBtn}" ClassId="3,1" Clicked="Sort_SalesOffices"/>
+                    </StackLayout>
+                </HorizontalStackLayout>
+                <HorizontalStackLayout  Grid.Column="2" Style="{StaticResource TitleItem}">
+                    <Label Text="No. Of Properties" Style="{StaticResource TitleLabel}"/>
+                    <StackLayout Margin="10,0,0,0">
+                        <Button ImageSource="up.png" Style="{StaticResource SortBtn}" ClassId="2,0"  Clicked="Sort_SalesOffices"/>
+                        <Button ImageSource="down.png" Style="{StaticResource SortBtn}" ClassId="2,1" Clicked="Sort_SalesOffices"/>
+                    </StackLayout>
+                </HorizontalStackLayout>
             </Grid>
 
             <CollectionView x:Name="SalesOfficesList" Grid.Column="1"  Grid.Row="2">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid BackgroundColor="#FFF" Padding="0, 15, 0, 15">
+                        <Grid BackgroundColor="#FFF" Padding="0, 15, 0, 15"  ClassId="{Binding ID}">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                            </Grid.GestureRecognizers>
                             <VisualStateManager.VisualStateGroups>
                                 <VisualStateGroup x:Name="CommonStates">
                                     <VisualState x:Name="Normal" />
@@ -53,9 +76,8 @@
                                 <ColumnDefinition Width="3*"/>
                                 <ColumnDefinition Width="2*"/>
                                 <ColumnDefinition Width="2*"/>
-                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="3*"/>
                             </Grid.ColumnDefinitions>
-
                             <VerticalStackLayout Grid.Column="0" Style="{StaticResource GridItem}">
                                 <Label Text="{Binding OfficeName}" Style="{StaticResource NormalText}"/>
                                 <Label Text="{Binding Address.GetAddress}" Style="{StaticResource MuteText}"/>
@@ -63,11 +85,10 @@
                             <VerticalStackLayout Grid.Column="1" Style="{StaticResource GridItem}">
                                 <Label Text="{Binding ManagerName}" Style="{StaticResource NormalText}"/>
                             </VerticalStackLayout>
-
                             <VerticalStackLayout Grid.Column="2" Style="{StaticResource GridItem}">
                                 <Label Text="{Binding NoOfProperties}" Style="{StaticResource NormalText}"/>
                             </VerticalStackLayout>
-
+                            
                             <HorizontalStackLayout Grid.Column="3" Style="{StaticResource GridItemEnd}">
                                 <Button
                                     Text="Add Employee" 
@@ -75,7 +96,16 @@
                                     TextColor="White"
                                     x:Name="AddEmployee" 
                                     Clicked="AddEmployee_Clicked" 
-                                    ClassId="{Binding ID}" Margin="0, 0, 10, 0"/>
+                                    ClassId="{Binding ID}" 
+                                    Margin="0, 0, 10, 0"/>
+                                <Button
+                                    Text="Hire Manager" 
+                                    BackgroundColor="{StaticResource primary}"
+                                    TextColor="White"
+                                    x:Name="HireManager" 
+                                    Clicked="HireManager_Clicked" 
+                                    ClassId="{Binding ID}" 
+                                    Margin="0, 0, 10, 0"/>
                                 <Button FontFamily="FFR" 
                                     Text="&#xf044;" 
                                     BackgroundColor="{StaticResource success}"
@@ -83,6 +113,7 @@
                                     x:Name="EditBtn" 
                                     Clicked="EditBtn_Clicked" 
                                     ClassId="{Binding ID}" />
+                                
                                 <Button FontFamily="FFR" 
                                     Text="&#x58;" 
                                     BackgroundColor="{StaticResource danger}"
@@ -92,10 +123,11 @@
                                     Margin="10, 0, 0, 0" 
                                     ClassId="{Binding ID}"/>
                             </HorizontalStackLayout>
+                            
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </Grid>
-    </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
