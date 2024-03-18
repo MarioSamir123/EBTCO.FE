@@ -21,19 +21,20 @@
                     Grid.Column="1"  
                     Grid.Row="0" 
                     x:Name="AddNewProperty" 
+                    ImageSource="plus.png"
                     Clicked="AddNewProperty_Clicked" 
                     HorizontalOptions="End" 
                     Margin="20,20,0,20"/>
 
             <Grid Grid.Column="1" Grid.Row="1" BackgroundColor="CadetBlue" Padding="15">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*"/>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="1.5*"/>
                     <ColumnDefinition Width="1.5*"/>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1.5*"/>
-                    <ColumnDefinition Width="0.5*"/>
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
                 <Label Text="Prices" Grid.Column="0" Margin="20, 0, 0, 0" HorizontalOptions="Start" VerticalOptions="Center"/>
                 <Label Text="Status" Grid.Column="1" Margin="20, 0, 0, 0" HorizontalOptions="Start" VerticalOptions="Center"/>
@@ -57,13 +58,13 @@
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="2*"/>
-                                <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1.5*"/>
                                 <ColumnDefinition Width="1.5*"/>
                                 <ColumnDefinition Width="1*"/>
                                 <ColumnDefinition Width="1.5*"/>
-                                <ColumnDefinition Width="0.5*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                                <ColumnDefinition Width="1*"/>
                             </Grid.ColumnDefinitions>
                             
                             <VerticalStackLayout Grid.Column="0" Style="{StaticResource GridItem}">
@@ -103,6 +104,7 @@
                                     BackgroundColor="{StaticResource primary}"
                                     TextColor="White"
                                     x:Name="SaleProp" 
+                                    ImageSource="acquisition.png"
                                     Clicked="SaleProp_Clicked" 
                                     ClassId="{Binding Id}" 
                                     Margin="0, 0, 10, 0"/>

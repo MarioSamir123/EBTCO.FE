@@ -20,7 +20,8 @@
                 Grid.Row="0" 
                 x:Name="AddOwner" 
                 Clicked="AddOwner_Clicked" 
-                WidthRequest="120" 
+                WidthRequest="200" 
+                ImageSource="plus.png"
                 HorizontalOptions="End" 
                 Margin="20,20,0,20"/>
                 <CollectionView x:Name="OwnersList" Grid.Column="1"  Grid.Row="1">

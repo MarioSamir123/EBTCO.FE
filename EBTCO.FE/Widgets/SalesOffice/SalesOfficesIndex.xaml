@@ -21,7 +21,8 @@
                     Clicked="AddSalesOfficeBtn_Clicked"
                     Grid.Column="1"
                     Grid.Row="0"
-                    WidthRequest="120"
+                    WidthRequest="250"
+                    ImageSource="plus.png"
                     HorizontalOptions="End"
                     Margin="20,20,0,20"/>
 

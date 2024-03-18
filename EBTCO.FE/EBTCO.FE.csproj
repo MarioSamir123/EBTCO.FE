@@ -61,7 +61,9 @@
 	  <None Remove="Resources\Fonts\Brands-Regular-400.otf" />
 	  <None Remove="Resources\Fonts\Free-Regular-400.otf" />
 	  <None Remove="Resources\Fonts\Free-Solid-900.otf" />
+	  <None Remove="Resources\Images\acquisition.png" />
 	  <None Remove="Resources\Images\down.png" />
+	  <None Remove="Resources\Images\plus.png" />
 	  <None Remove="Resources\Images\up.png" />
 	</ItemGroup>
 
